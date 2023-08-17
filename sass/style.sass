@@ -1,0 +1,136 @@
+@import 'normalize.scss'
+@import 'reset.scss'
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap')
+
+
+body 
+    box-sizing: border-box
+    padding: 30px 60px
+    font-family: 'Poppins', sans-serif
+    background: top / contain no-repeat url('/images/Back.svg'), top / contain no-repeat url('/images/Drops.svg')
+    background-size: 650px 650px
+    
+.hover
+    color: #fff
+    background-color: #F83333
+
+.hover-menu
+    color: #fff
+    background-color: #F83333
+    border-radius: 15px
+    cursor: pointer
+
+.header 
+    display: flex
+    justify-content: space-between
+    align-items: center
+.header__logo
+    img
+        width: 100px
+.header__nav
+.header__nav_list
+    display: flex
+    flex-direction: row
+.header__nav_list-item 
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-right: 80px
+    width: 100px
+    height: 50px
+    text-decoration: none
+    color: #8f8f8f
+    font-size: 18px
+    font-weight: 400
+    line-height: 34px
+    word-wrap: break-word
+    &:last-child
+        margin-right: 0px
+        color: #fff
+        background-color: #F83333
+        border-radius: 15px
+
+.main 
+    display: flex
+    justify-content: space-between
+    margin-top: 80px
+.main__section
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    width: 500px
+.main__section_title
+    color: #202020
+    font-size: 96px
+    font-weight: 600
+    text-transform: capitalize
+    word-wrap: break-word
+.main__section_title-pizza
+    display: flex
+    margin-top: 40px
+    font-family: 'Kalam', cursive
+    color: #F8333C
+    transform: rotate(-10.04deg)
+    transform-origin: 0 0
+    font-size: 128px
+    font-weight: 400 
+    word-wrap: break-word
+    span
+        position: relative
+        z-index: 5
+.elipse
+    display: flex
+    justify-content: center
+    align-items: center
+    position: relative
+    z-index: 1
+    left: -70px
+    width: 100px
+    height: 100px
+    transform: rotate(87.54deg) 
+    background: linear-gradient(170deg, #F8333C 20%, rgba(255, 255, 255, 0) 60%)
+    border-radius: 100%
+.elipse_clear
+    position: relative
+    z-index: 2
+    width: 85px
+    height: 85px 
+    background: #FFF
+    border-radius: 100%
+.main__section_text 
+
+.main__menu
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    width: 420px
+.main__menu_pizza
+    display: flex
+    justify-content: space-around
+    align-items: center
+    margin-top: 60px
+    height: 140px
+    &:first-child
+        margin-top: 0px
+    &:last-child
+        color: #fff
+        background-color: #F83333
+        border-radius: 15px
+        cursor: pointer
+.main__menu_pizza-description
+    display: flex
+    flex-direction: column
+    width: 260px
+.main__menu_pizza-description_title
+    color: inherit
+    font-size: 24px
+    font-weight: 700
+    line-height: 34px
+    word-wrap: break-word
+.main__menu_pizza-description_text
+    color: inherit
+    opacity: 0.6
+    font-size: 16px
+    font-weight: 400
+    line-height: 30px
+    word-wrap: break-word
