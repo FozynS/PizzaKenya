@@ -11,6 +11,7 @@
     <title>Pizza Kenya</title>
 </head>
 <body>
+
     <header class="header">
 
         <div class="header__logo">
@@ -46,8 +47,10 @@
             </div>
 
             <div class="main__section_btns">
-                <button>Order now!</button>
-                <button>Reviews</button>
+                <button class="main__section_btns-order">Order now!</button>
+                <button class="main__section_btns-reviews">Reviews
+                    <img src="images/arrow-up-short.svg" alt="#">
+                </button>
             </div>
         </article>
 
@@ -62,7 +65,7 @@
 
             <div class="main__menu_pizza">
                 <img src="images/pizza2.svg" alt="Pizza">
-                <div class="main__menu_pizza-descriptionhg">
+                <div class="main__menu_pizza-description">
                     <h2 class="main__menu_pizza-description_title">Сheese chicken</h2>
                     <p class="main__menu_pizza-description_text">Сhicken, 4 cheese, signature cheese sauce</p>
                 </div>
@@ -76,8 +79,49 @@
                 </div>
             </div>
         </article>
-
     </main>
+
+    <footer class="footer">
+        <img src="images/Pin_alt_fill.svg" alt="#" class="location">
+        <img src="images/Vector.svg" alt="#" class="way">
+        <div class="circle-container">
+            <div class="circle-letter">F</div>
+            <div class="circle-letter">I</div>
+            <div class="circle-letter">N</div>
+            <div class="circle-letter">D</div>
+            <div class="circle-letter">•</div>
+            <div class="circle-letter">F</div>
+            <div class="circle-letter">I</div>
+            <div class="circle-letter">N</div>
+            <div class="circle-letter">D</div>
+            <div class="circle-letter">•</div>
+            <div class="circle-letter">F</div>
+            <div class="circle-letter">I</div>
+            <div class="circle-letter">N</div>
+            <div class="circle-letter">D</div>
+            <div class="circle-letter">•</div>
+            <div class="circle-letter">F</div>
+            <div class="circle-letter">I</div>
+            <div class="circle-letter">N</div>
+            <div class="circle-letter">D</div>
+            <div class="circle-letter">•</div>
+        </div>
+    </footer>
+
+    <div class="modal">
+        <div class="modal__dialog">
+            <div class="modal__content">
+                <form action="#">
+                    <div data-close class="modal__close">x</div>
+                    <div class="modal__title">We will get back to you as soon as possible!</div>
+                    <input required placeholder="Your name" name="name" type="text" class="modal__input">
+                    <input required placeholder="Your phone number" name="phone" type="phone" class="modal__input">
+                    <button class="btn btn_dark btn_min">Call me back</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
 </body>
 </html>
