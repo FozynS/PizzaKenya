@@ -13,16 +13,16 @@ body
     background: top / contain no-repeat url('/images/Back.svg'), top / contain no-repeat url('/images/Drops.svg')
     background-size: 650px 650px
     overflow: hidden
-    
+
 .hover
     color: #fff
     background-color: #F83333
-
+    transition: all 0.3s ease-in-out
 .hover-menu
     color: #fff
     background-color: #F83333
-    border-radius: 15px
     cursor: pointer
+    transition: all 0.5s ease-in-out
 
 @-webkit-keyframes pulsing 
     0% 
@@ -47,6 +47,14 @@ body
     display: block
 .hide
     display: none
+.animation-hide
+    opacity: 0
+    transform: translate(480px)
+    transition: all 1s ease-in-out
+.animation-show
+    opacity: 1
+    transform: translate(0px)
+    transition: all 1s ease-in-out
 
 .header 
     display: flex
@@ -67,16 +75,17 @@ body
     width: 100px
     height: 50px
     text-decoration: none
-    color: #8f8f8f
     font-size: 18px
     font-weight: 400
     line-height: 34px
     word-wrap: break-word
+    cursor: pointer
+    transition: background-color 0.3s ease-in-out
+    border-radius: 15px
     &:last-child
         margin-right: 0px
-        color: #fff
-        background-color: #F83333
-        border-radius: 15px
+    &:active
+        transform: scale(0.8)
 
 .main 
     display: flex
@@ -134,6 +143,8 @@ body
     animation: pulsing 2s infinite
     &:hover 
         animation: none
+    &:active
+        transform: scale(0.8)
 .main__section_btns-reviews
     display: flex
     align-items: center
@@ -154,9 +165,6 @@ body
         position: relative
         top: -10px
         left: -5px
-    //! &:active
-    //!     box-shadow: 0 0 0 rgba(249, 43, 43, 0.4)
-    //!     animation: pulsing 2s infinite
 
 .main__menu
     display: flex
@@ -169,13 +177,10 @@ body
     align-items: center
     margin-top: 60px
     height: 140px
+    transition: all 0.5s ease-in-out
+    border-radius: 15px
     &:first-child
         margin-top: 0px
-    &:last-child
-        color: #fff
-        background-color: #F83333
-        border-radius: 15px
-        cursor: pointer
 .main__menu_pizza-description
     display: flex
     flex-direction: column
@@ -223,6 +228,7 @@ body
     position: relative
     left: 298px
     top: -15px
+    cursor: pointer
 .way
     position: relative
     left: 40px
@@ -426,13 +432,11 @@ body
     transform: rotate(-179.73deg)
     transform-origin: 0 0
 
-
 .modal
     position: fixed
     top: 0
     left: 0
     z-index: 1050
-    display: none
     width: 100%
     height: 100%
     overflow: hidden
@@ -482,9 +486,21 @@ body
     width: 280px
     margin: 0 auto
     border-radius: 10px
+    cursor: pointer
+    &:active
+        transform: scale(0.8)
 .btn_dark
     background-color: #F8333C
     color: #fff
     border: none
 .btn_min
     height: 50px
+.map
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+.map-content
+    max-width: 500px
+    margin: 40px auto

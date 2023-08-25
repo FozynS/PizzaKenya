@@ -20,10 +20,10 @@
 
         <div class="header__nav">
             <ul class="header__nav_list">
-                <a href="#" class="header__nav_list-item"> About us </a>
-                <a href="#" class="header__nav_list-item"> Contact </a>
-                <a href="#" class="header__nav_list-item"> Location </a>
-                <a href="#" class="header__nav_list-item"> Menu </a>
+                <li href="#" class="header__nav_list-item"> About us </li>
+                <li href="#" class="header__nav_list-item"> Contact </li>
+                <li href="#" class="header__nav_list-item" id="location"> Location </li>
+                <li href="#" class="header__nav_list-item" id="menu"> Menu </li>
             </ul>
         </div>
 
@@ -47,14 +47,14 @@
             </div>
 
             <div class="main__section_btns">
-                <button class="main__section_btns-order">Order now!</button>
+                <button class="main__section_btns-order" id="button-order">Order now!</button>
                 <button class="main__section_btns-reviews">Reviews
                     <img src="images/arrow-up-short.svg" alt="#">
                 </button>
             </div>
         </article>
 
-        <article class="main__menu">
+        <article class="main__menu animation-hide">
             <div class="main__menu_pizza">
                 <img src="images/pizza1.svg" alt="Pizza">
                 <div class="main__menu_pizza-description">
@@ -108,7 +108,7 @@
         </div>
     </footer>
 
-    <div class="modal">
+    <div class="modal hide">
         <div class="modal__dialog">
             <div class="modal__content">
                 <form action="#">
@@ -121,7 +121,13 @@
             </div>
         </div>
     </div>
+    <section class="map hide">
+        <div class="map-content">
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A104c2ebf8188e2e7b1d99ae09c1434d9f67477e18159a7e6bd29ca7a97a9357d&amp;source=constructor" width="500" height="400" frameborder="0"></iframe>
+        </div>
+    </section>
+    
 
-
+<script src="js/bundle.js"></script>
 </body>
 </html>
