@@ -1,10 +1,10 @@
 import $ from 'jquery';
 
+// Site Animation /
 
-//*! Site Animation */
-
-//*! Modal Dialog */
+// Modal Dialog /
 const buttonOpen = $('#button-order'),
+        btnContact = $('#contact'),
         buttonClose = $('.modal__close'),
         modal = $('.modal'),
         btnCall = $('.btn');
@@ -17,6 +17,9 @@ function closeModal() {
     modal.addClass('hide');
     modal.removeClass('show');
 };
+$(btnContact).on('click', () => {
+    openModal();
+})
 $(buttonOpen).on('click', () => {
     openModal();
 });
@@ -37,7 +40,49 @@ $(document).on('click', (e) => {
     }
 });
 
-//*! Animation Header */
+//! Forms BackEnd /
+const forms= $('form');
+
+const message = {
+    loading: 'images/spinner.svg',
+    success: "Thank you! We'll be in contact with you soon",
+    failure: 'Something went wrong...'
+};
+
+forms.each(item => {
+    postData(item);
+})
+
+function postData(form) {
+    $(forms).on('submit', (e) => {
+        e.preventDefault();
+
+        const statusMessage = $('div');
+        statusMessage.addClass('modal-response');
+        statusMessage.text($(message.loading));
+        form.append($(statusMessage));
+
+        const request = new XMLHttpRequest();
+        request.open('POST', 'server.php');
+
+        request.setRequestHeader('Content-type', 'multipart/form-data');
+        const formData = new FormData(form);
+
+        request.send(formData);
+
+        $(request).on('load', () => {
+            if(request.status === 200) {
+                console.log(request.response);
+                statusMessage.text($(message.success));
+            } else {
+                statusMessage.text($(message.failure));
+            }
+        });
+    });
+};
+
+
+// Animation Header /
 const headerList = $('.header__nav_list-item');
 headerList.each((index, items) => {
     const item = $(items);
@@ -48,7 +93,7 @@ headerList.each((index, items) => {
     })
 });
 
-//*! Animation Menu */
+// Animation Menu /
 const buttonMenu = $('#menu'),
         menuPizza = $('.main__menu'),
         pizzas = $('.main__menu_pizza');
@@ -72,7 +117,7 @@ $(buttonMenu).on('click', () => {
     }
 })
 
-//*! Map Animation */
+// Map Animation /
 const btnLocation = $('#location'),
         imgLocation = $('.location'),
         map = $('.map');
@@ -96,3 +141,4 @@ $(document).on('click', (e) => {
         closeMap();
     }
 });
+
