@@ -160,6 +160,76 @@ $(document).on('click', (e) => {
 //         pizza.update()
 
 //     }())
+
+//! Card for Menu /
+// class MenuCard {
+//     constructor(src, alt, title, description, parentSelector, ...classes) {
+//         this.src = src;
+//         this.alt = alt;
+//         this.title = title;
+//         this.descr = description;
+//         this.classes = classes;
+//         this.parent = document.querySelector(parentSelector);
+//     }
+
+//     render() {
+//         const element = $('<div></div>');
+
+//         if (this.classes.length === 0) {
+//             this.element = 'menu__item';
+//             element.addClass(this.element);   
+//         } else {
+//             this.classes.forEach(className => element.addClass(className));
+//         }
+
+//         element.innerHTML = `
+//             <div class="main__menu_pizza">
+//                 <img src=${this.src} alt=${this.alt}>
+//                 <div class="main__menu_pizza-description">
+//                 <h2 class="main__menu_pizza-description_title">${this.title}</h2>
+//                 <p class="main__menu_pizza-description_text">${this.descr}</p>
+//                 </div>
+//             </div>
+//         `;
+//         this.parent.append(element);
+//     }
+// }
+
+const getResource = async (url) => {
+    const result = await fetch(url);
+
+    if (!result.ok) {
+        throw new Error(`Could not fetch ${url}, status: ${result.status}`);
+    }
+
+    return await result.json();
+};
+
+getResource('http://localhost:3000/menu')
+    .then(data => createCard(data));
+
+    function createCard(data) {
+        data.forEach(({img, altimg, title, descr}) => {
+            const element = document.createElement('div');
+            element.classList.add('main__menu_pizza')
+
+            element.innerHTML = `
+                <img src=${img} alt=${altimg}>
+                <div class="main__menu_pizza-description">
+                <h2 class="main__menu_pizza-description_title">${title}</h2>
+                <p class="main__menu_pizza-description_text">${descr}</p>
+                </div>
+        `;
+
+            $('.main__menu').append(element)
+        });
+    }
+    // .then(data => {
+    //     data.forEach(({img, altimg, title, descr}) => {
+    //         new MenuCard(img, altimg, title, descr, '.main__menu').render();
+    //     });
+    // });
+
 //! Forms BackEnd /
 const forms= $('form');
 
@@ -170,10 +240,22 @@ const message = {
 };
 
 forms.each((index, item) => {
-    postData(item);
+    bindPostData(item);
 });
 
-function postData(form) {
+const postData = async (url, data) => {
+    const result = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: data
+    });
+
+    return await result.json();
+};
+
+function bindPostData(form) {
     $(form).on('submit', (e) => {
         e.preventDefault();
 
@@ -187,19 +269,9 @@ function postData(form) {
 
         const formData = new FormData(form);
 
-        const object = {};
-        for (let [key, value] of formData) {
-            object[key] = value;
-        };
+        const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
-        fetch('server.php', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(object)
-        })
-        .then(data => data.text())
+        postData('http://localhost:3000/requests', json)
         .then(data => {
             console.log(data);
             showThanksModal(message.success);
@@ -234,6 +306,10 @@ function postData(form) {
             closeModal();
         }, 2500);
     }
+
+    fetch('http://localhost:3000/menu')
+        .then(data => data.json())
+        .then(res => console.log(res))
 };
 
 
