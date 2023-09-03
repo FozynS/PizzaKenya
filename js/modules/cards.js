@@ -18,7 +18,7 @@ function cards(mainPizza, mainMenu) {
                 </div>
         `;
 
-            $(mainMenu).append(element)
+            $(mainMenu).append(element);
         });
     }
 }
