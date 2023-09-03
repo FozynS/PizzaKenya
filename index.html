@@ -11,7 +11,7 @@
     <title>Pizza Kenya</title>
 </head>
 <body>
-    <header class="header">
+    <header class="header header-loading-hide">
         <div class="header__logo">
             <img src="images/Logo.svg" alt="Logotype">
         </div>
@@ -27,7 +27,7 @@
     </header>
 
     <main class="main">
-        <article class="main__section">
+        <article class="main__section main-section-hide">
             <div class="main__section_title">
                 <h1>Kenyan 
                     <div class="main__section_title-pizza"> <span>Pizza </span>
@@ -77,7 +77,7 @@
         </article>
     </main>
 
-    <footer class="footer">
+    <footer class="footer footer-hide">
         <img src="images/Pin_alt_fill.svg" alt="#" class="location">
         <img src="images/Vector.svg" alt="#" class="way">
         <div class="circle-container">
@@ -113,7 +113,6 @@
                     <input required placeholder="Your name" name="name" type="text" class="modal__input">
                     <input required placeholder="Your phone number" name="phone" type="phone" class="modal__input">
                     <button class="btn btn_dark btn_min">Call me back</button>
-                    <canvas class="hide" id="pizza"></canvas>
                 </form>
             </div>
         </div>
@@ -125,7 +124,7 @@
         </div>
     </section>
     
-
-<script src="js/bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="js/bundle.js"></script>
 </body>
 </html>
